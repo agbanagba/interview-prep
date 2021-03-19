@@ -17,3 +17,11 @@ we'll end up with O(nlogn)
 
 Time Complexity - O(nlogn)
 Space Complexity - O(n)
+
+Efficient Approach:
+Building on approach 1 above, the sorting takes the most running time in the algorithm.
+We can instead track the min and max levels we have vertically and run through that range to get
+our final values
+
+Time Complexity - O(n)
+Space Complexity - O(n)
