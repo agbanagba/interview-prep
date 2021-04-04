@@ -1,5 +1,15 @@
+
 def min_sum_array_len(nums, target):
-    pass
+    import math
+    min_length = math.inf
+    for i in range(len(nums)):
+        summ = 0
+        for j in range(i, len(nums)):
+            summ += nums[j]
+            if summ >= target:
+                min_length = min(min_length, j + 1 - i)
+                break
+    return 0 if min_length == math.inf else min_length
 
 
 def min_sum_arry(nums, target):
@@ -20,4 +30,4 @@ def min_sum_arry(nums, target):
 
 if __name__ == '__main__':
     arr = [2, 3, 1, 2, 4, 3]
-    print(min_sum_arry(arr, 7))
+    print(min_sum_array_len(arr, 7))
