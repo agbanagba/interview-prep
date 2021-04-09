@@ -1,10 +1,4 @@
-# There must be one edit distance between strings so strings of the same length can't work.
-# and also strings with len diff of 2 or more cannot also work.
 
-
-# TODO: Make this consider replacing one character. A replacement will occur if it's
-#   1. Different case 'a' vs 'A'
-#   2. A replacement can only happen on the same length of strings.
 def is_one_edit_distance(s, t):
     if abs(len(s) - len(t)) > 1 or s == t:
         return False
