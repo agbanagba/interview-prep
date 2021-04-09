@@ -1,6 +1,3 @@
-import math
-
-
 def max_profit(prices):
     max_p = 0
     minn = prices[0]
@@ -13,17 +10,32 @@ def max_profit(prices):
 
 
 def max_profit_2(prices):
-    minn, maxx = 0, -math.inf
+    minn, maxx = prices[0], prices[0]
     max_p = 0
-    for idx, val in enumerate(prices):
-        if val < minn:
-            minn = val
-        elif val :
-            # calculate the max profit
+    i = 0
+    while i < len(prices) - 1:
+        while i < len(prices) - 1 and prices[i] >= prices[i + 1]:
+            i += 1
+        minn = prices[i]
+        while i < len(prices) - 1 and prices[i] <= prices[i + 1]:
+            i += 1
+        maxx = prices[i]
+        max_p += maxx - minn
+    return max_p
 
-            pass
 
+def max_profit_2_eff(prices):
+    max_p = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            max_p += prices[i] - prices[i - 1]
+    return max_p
+
+
+def max_profit_3(prices):
+    # Dynamic programming problem - oh well
+    pass
 
 if __name__ == '__main__':
-    p = [3, 2, 6, 5, 0, 3]
-    print(max_profit(p))
+    p = [1, 2, 4, 2, 5, 7, 2, 4, 9, 0]
+    print(max_profit_3(p))
