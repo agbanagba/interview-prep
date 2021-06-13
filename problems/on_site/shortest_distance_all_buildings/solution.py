@@ -76,33 +76,28 @@ def shortest_distance_efficient(grid):
                 homes += 1
                 visited = [[False] * n for _ in range(m)]
                 queue = collections.deque()
-                queue.append((i, j))
-                dist = 0
+                queue.append((i, j, 0))
 
                 while queue:
-                    size = len(queue)
-                    for k in range(size):
-                        x, y = queue.popleft()
-                        distances[x][y] += dist
-                        visited_num[x][y] += 1
+                    x, y, distance = queue.popleft()
+                    distances[x][y] += distance
+                    visited_num[x][y] += 1
 
-                        if x - 1 >= 0 and grid[x - 1][y] == 0 and not visited[x - 1][y]:
-                            queue.append((x - 1, y))
-                            visited[x - 1][y] = True
+                    if x - 1 >= 0 and grid[x - 1][y] == 0 and not visited[x - 1][y]:
+                        queue.append((x - 1, y, distance + 1))
+                        visited[x - 1][y] = True
 
-                        if x + 1 < m and grid[x + 1][y] == 0 and not visited[x + 1][y]:
-                            queue.append((x + 1, y))
-                            visited[x + 1][y] = True
+                    if x + 1 < m and grid[x + 1][y] == 0 and not visited[x + 1][y]:
+                        queue.append((x + 1, y, distance + 1))
+                        visited[x + 1][y] = True
 
-                        if y - 1 >= 0 and grid[x][y - 1] == 0 and not visited[x][y - 1]:
-                            queue.append((x, y - 1))
-                            visited[x][y - 1] = True
+                    if y - 1 >= 0 and grid[x][y - 1] == 0 and not visited[x][y - 1]:
+                        queue.append((x, y - 1, distance + 1))
+                        visited[x][y - 1] = True
 
-                        if y + 1 < n and grid[x][y + 1] == 0 and not visited[x][y + 1]:
-                            queue.append((x, y + 1))
-                            visited[x][y + 1] = True
-
-                    dist += 1
+                    if y + 1 < n and grid[x][y + 1] == 0 and not visited[x][y + 1]:
+                        queue.append((x, y + 1, distance + 1))
+                        visited[x][y + 1] = True
 
     result = math.inf
     for i in range(m):

@@ -92,4 +92,4 @@ def min_total_distance_efficient(grid):
 if __name__ == '__main__':
     grd1 = [[1, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]]
     grd2 = [[1, 0]]
-    print(min_total_distance_efficient(grd2))
+    print(min_total_distance_bfs(grd1))
