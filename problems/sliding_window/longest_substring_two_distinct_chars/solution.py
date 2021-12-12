@@ -6,7 +6,7 @@ def length_of_longest_substring_two_distinct(s):
         substr = s[idx1:idx2 + 1]
 
         # check if substr contains two distinct chars, move idx2 else move idx1
-        substr_len = len(set(substr))
+        substr_len = len(set(substr)) # this here will increase the complexity because the
         if substr_len <= 2:
             max_len = max(max_len, len(substr))
             idx2 += 1
@@ -30,6 +30,9 @@ def length_of_longest_substring_two_distinct_eff(s):
         else:
             mp[s[idx2]] = mp.get(s[idx2], 0) + 1
             idx2 += 1
+
+        if len(mp) <= 2:
+            max_len = max(max_len, sum(mp.values()))
 
     return max_len
 
@@ -58,4 +61,4 @@ if __name__ == '__main__':
     s2 = "ccaabbb"
     s3 = "aaaaaaa"
     s4 = "a"
-    print(length_of_longest_substring_two_distinct_eff(s1))
+    print(length_of_longest_substring_two_distinct_eff(s4))
