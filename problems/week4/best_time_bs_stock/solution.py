@@ -36,6 +36,9 @@ def max_profit_3(prices):
     # Dynamic programming problem - oh well
     pass
 
+
 if __name__ == '__main__':
     p = [1, 2, 4, 2, 5, 7, 2, 4, 9, 0]
-    print(max_profit_3(p))
+    p2 = [7, 1, 5, 3, 6, 4]
+    print(max_profit_2(p2))
+    print(max_profit_2_eff(p2))

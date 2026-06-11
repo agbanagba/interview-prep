@@ -51,7 +51,7 @@ def sprial_order_works(matrix):
         tmp_i, tmp_j = i + direction[di][0], j + direction[di][1]
         if 0 <= tmp_i < m and 0 <= tmp_j < n and not seen[tmp_i][tmp_j]:
             i, j = tmp_i, tmp_j
-        else:
+        else: 
             # calculate a new direction and go there
             di = (di + 1) % 4
             i, j = i + direction[di][0], j + direction[di][1]
@@ -64,4 +64,4 @@ if __name__ == '__main__':
     mat3 = [[1]]
     mat4 = [[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18], [19, 20, 21, 22, 23, 24],
             [25, 26, 27, 28, 29, 30]]
-    print(sprial_order_works(mat4))
+    print(sprial_order_works(mat))

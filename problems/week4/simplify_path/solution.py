@@ -7,7 +7,7 @@ def simplify_path(path):
     # 4. remove trailing / if exists
 
     stack = []
-    path = path.split('/')  # we'll have empty strings in place of / so we ignore.
+    path = path.split('/')  # we'll have empty  in place of / so we ignore.
 
     for item in path:
 

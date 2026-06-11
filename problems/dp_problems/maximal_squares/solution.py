@@ -28,4 +28,4 @@ if __name__ == '__main__':
     matrix4 = [["0"]]
 
     print(maximal_square_brute_force(matrix4))
-    # print(all_ones(matrix1, 1, 3, 2, 4))
+0    # print(all_ones(matrix1, 1, 3, 2, 4))
