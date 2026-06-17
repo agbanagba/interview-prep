@@ -3,7 +3,10 @@
 
 # The way we tackle the duplicates is by sorting so duplicates are lined up next to each other and when we want
 # to check the menu, we ensure we don't do 1->1 for instance in a specific path. 
-def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+
+from typing import List
+
+def combinationSum2(candidates: List[int], target: int) -> List[List[int]]:
     result = []
 
     candidates.sort()

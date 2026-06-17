@@ -11,6 +11,8 @@ def exist(board: List[List[str]], word: str):
             return False
 
         # Choose
+
+        
         temp = board[row][col]
         board[row][col] = "#"
 

@@ -13,7 +13,6 @@ def canConstruct(target: str, wordBank: List[str], memo={}) -> bool:
     for word in wordBank:
 
         if target.startswith(word):
-            # return False
 
             remainder = target[len(word):]
             if canConstruct(remainder, wordBank, memo):
