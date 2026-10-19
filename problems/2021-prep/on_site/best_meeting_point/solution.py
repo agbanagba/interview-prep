@@ -23,7 +23,7 @@ def min_total_distance(grid):
     # now we traverse again
     for i in range(m):
         for j in range(n):
-            # calculate the distance from (i, j) to all homes
+            # calculate the distance from (i, j) to all homes 
             distance = 0
             for x, y in homes:
                 distance += abs(j - y) + abs(i - x)

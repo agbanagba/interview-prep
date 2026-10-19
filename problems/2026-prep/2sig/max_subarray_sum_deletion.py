@@ -30,7 +30,7 @@ def maximumSum(self, arr: list[int]) -> int:
 def maximumSum(arr: list[int]) -> int:
     # Base case: if there's only one number, you can't delete it (subarray must have at least 1 element)
     if len(arr) == 1:
-        return arr
+        return arr[0]
 
     # 1. Initialize the timelines at the very first number (Index 0)
     pristine = arr[0]  # Max sum ending here with NO deletions

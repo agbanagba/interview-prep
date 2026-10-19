@@ -5,9 +5,7 @@ def house_robber(nums: List[int]) -> int:
     # we can use a memo or use python @cache. for interviews, use memo. if you run it and its TLE, 
     # convert to using @cache
 
-    def dfs(idx, memo=None):
-        if not memo:
-            memo = {}
+    def dfs(idx, memo={}):
 
         if idx in memo:
             return memo[idx]

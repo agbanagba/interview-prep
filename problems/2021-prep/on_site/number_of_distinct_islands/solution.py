@@ -40,7 +40,7 @@ def num_distinct_islands(grid):
     return len(distinct_islands)
 
 
-def num_distinct_islands_recursive_dfs(grid):
+def num_distinct_islands_dfs(grid):
     def dfs(row, col, r_origin, c_origin, curr_island):
         if row < 0 or row >= len(grid) or col < 0 or col >= len(grid[0]):
             return

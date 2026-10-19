@@ -82,3 +82,6 @@ def nQueens(n):
 
     backtrack(0)
     return result
+
+
+# For N-Queens II, you just return the length of the result 

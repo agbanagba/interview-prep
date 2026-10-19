@@ -33,7 +33,6 @@ import heapq
 def get_build_schedule(codebase_time, dependency):
 
     # Phase 1: Setup adjacency list and in-degree map
-
     # unlocks is like a reverse dependency list for each codebase.
     unlocks = defaultdict(list)
     wait_count = {cb: 0 for cb in codebase_time} # start everyone at 0
@@ -57,8 +56,6 @@ def get_build_schedule(codebase_time, dependency):
 
     # Phase 3: Simulation Loop
     while event_calendar:
-
-        # I'm not sure if next_event_time is event_calendar[0]
         next_event_time = event_calendar[0][0]
 
         if next_event_time > current_time:

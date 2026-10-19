@@ -49,3 +49,6 @@ def generateParenthesis_AnotherVersion(n: int) -> List[str]:
     backtrack([], 0, 0)
     return result
 
+
+if __name__ == "__main__":
+    print(generateParenthesis(5))

@@ -19,7 +19,7 @@ def restoreIpAddresses(s: str) -> List[str]:
                 # No leading zeros and between the range of 0 and 255. 
                 # if not continue
                 if len(c_slice) > 1 and c_slice[0] == "0":
-                    continue
+                    break
                 
                 ci_slice = int(c_slice)
                 if not (0 <= ci_slice <= 255):

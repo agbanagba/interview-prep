@@ -55,3 +55,26 @@ def topKFrequent_HeapK(nums, k):
 
 
     return [key for _, key in heap]
+
+
+def topKFrequent_BucketSort(nums, k):
+
+    counter = defaultdict(int)
+    for num in nums:
+        counter[num] += 1
+
+    freq = [[] for i in range(len(nums) + 1)]
+
+    for num, count in counter.items():
+        freq[count].append(num)
+
+    result = []
+    i = len(freq) - 1
+    while i > 0:
+        for num in freq[i]:
+            result.append(num)
+
+            if len(result) == k:
+                return result
+        i -= 1
+        

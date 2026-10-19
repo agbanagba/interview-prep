@@ -1,3 +1,28 @@
+
+def numDecodings(self, s: str) -> int:
+    def helper(idx, memo={}):
+
+        if idx in memo:
+            return memo[idx]
+
+        if idx == len(s):
+            return 1
+
+        if s[idx] == '0':
+            return 0
+
+        if idx == len(s) - 1:
+            return 1
+
+        ans = helper(idx + 1)
+        if int(s[idx:idx + 2]) <= 26:
+            ans += helper(idx + 2)
+
+        memo[idx] = ans
+        return ans
+
+
+
 # https://leetcode.com/problems/decode-ways-ii/
 # Works but TLE in Leetcode.
 def num_decodings(s):
@@ -41,6 +66,58 @@ def num_decodings(s):
         return ans
 
     return helper(0, s) % (pow(10, 9) + 7)
+
+
+def num_decodingsII_Efficient(s: str) -> int:
+
+    memo = {}
+    def helper(idx):
+        if idx == len(s):
+            return 1
+    
+        if s[idx] == '0':
+            return 0
+        
+        if idx in memo:
+            return memo[idx]
+        
+        ans = 0
+        if s[idx] == '*':
+            ans += 9 * helper(idx + 1)
+        else:
+            ans += helper(idx + 1)
+
+        if idx != len(s) - 1: # you could also check that idx + 1 < len(s)
+            ch1 = s[idx]
+            ch2 = s[idx + 1]
+
+            if ch1 == '*' and ch2 == '*':
+                ans += 15 * helper(idx + 2)
+            elif ch1 == '*' and ch2 != '*':
+                
+                # this case is *N, this is 1 way if N is > 6 e.g, 17, 27 does not map. So * can only be 1
+                if int(ch2) > 6:
+                    ans += 1 * helper(idx + 2)
+                else:
+                    ans += 2 * helper(idx + 2)
+
+            elif ch1 != "*" and ch2 == '*':
+                # this case is N*. 
+                if ch1 == '1':
+                    ans += 9 * helper(idx + 2)
+                elif ch1 == '2':
+                    ans += 6 * helper(idx + 2)
+            else:
+                # two standard digits
+                if 10 <= int(ch1 + ch2) <= 26:
+                    ans += 1 * helper(idx + 2)
+
+
+        ans = ans % (pow(10, 9) + 7)
+        memo[idx] = ans
+        return ans
+    return helper(0)
+    
 
 
 if __name__ == '__main__':
